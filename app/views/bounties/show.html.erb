@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @bounty.event_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @bounty.value %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bounty.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bounty.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_bounty_path(@bounty) %> |
+<%= link_to 'Back', bounties_path %>

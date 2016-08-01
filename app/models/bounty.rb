@@ -1,0 +1,2 @@
+class Bounty < ApplicationRecord
+end
