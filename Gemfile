@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'annotate', '~> 2.7', '>= 2.7.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'rubocop', '~> 0.42.0'
+gem 'devise', '~> 4.2'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
