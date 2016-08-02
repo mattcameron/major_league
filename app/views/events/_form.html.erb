@@ -36,6 +36,16 @@
     <%= f.text_area :favourites %>
   </div>
 
+  <div class="field">
+    <%= f.label :bounties %>
+    <%= f.fields_for :bounties do |ff| %>
+      <%= render 'bounty_fields', f: ff %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add new bounty', f, :bounties %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

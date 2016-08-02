@@ -1,0 +1,7 @@
+<section>
+  <h2>Leaderboard</h2>
+
+  <% @users.order_by_points.each do |user| %>
+    <div> <%= user.name %> - <%= user.points %></div>
+  <% end %>
+</section>
