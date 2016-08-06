@@ -1,3 +1,32 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.img-fullwidth {
+  width: 100%;
+}
+
+.fullwidthbanner {
+  .main-heading {
+    position: absolute;
+    top: 250px;
+    left: 80px;
+    color: #fff;
+    text-align: center;
+    h1 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: bold;
+    }
+    h2 {
+      font-family: "Montserrat", sans-serif;
+    }
+    .center-title {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+#about {
+  padding-top: 50px;
+  .about-quote {
+    p {
+      font-size: 25px;
+    }
+  }
+}

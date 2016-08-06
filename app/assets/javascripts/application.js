@@ -32,4 +32,5 @@
 //= require assan/jquery.themepunch.tools.min.js
 //= require assan/jquery.themepunch.revolution.js
 //= require assan/revolution-custom.js
+//= require assan/jquery.countdown.min.js
 //= require_tree .
