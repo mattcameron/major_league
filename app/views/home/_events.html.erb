@@ -2,8 +2,8 @@
   <div class="container">
     <div class="center-title">
       <span class="center-line"></span>
-      <p>Recent work.</p>
-      <h3>Portfolio</h3>
+      <p>Events</p>
+      <h3>The proving grounds</h3>
     </div>
 
     <div class="cube-masonry">
@@ -12,7 +12,7 @@
           <div class="cbp-item">
             <%= link_to event_path(event), class: 'cbp-caption' do %>
               <div class="cbp-caption-defaultWrap">
-                <%= image_tag 'gokarting.gif' %>
+                <%= image_tag event.image.url %>
               </div>
               <div class="cbp-caption-activeWrap">
                 <div class="cbp-l-caption-alignCenter">
