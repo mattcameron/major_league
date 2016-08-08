@@ -18,18 +18,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="#home" class="scroll-to">Home</a></li>
         <li><a href="#about" class="scroll-to">About</a></li>
+        <li><a href="#events" class="scroll-to">Events</a></li>
         <li><a href="#services" class="scroll-to">Services</a></li>
-        <li class="dropdown">
-          <span class="dropdown-toggle" data-toggle="dropdown" role="button">Dropdown <i class="caret"></i></span>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-        <li><a href="#work" class="scroll-to">Work</a></li>
         <li><a href="#contact" class="scroll-to">Contact</a></li>
         <% if user_signed_in? %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>

@@ -15,19 +15,7 @@ $(document).ready(function () {
     $(".sticky").sticky({topSpacing: 0});
 
 });
-//smooth scroll
-$(document).ready(function () {
-  $('.scroll-to').click(function () {
-    var link = $(this).attr('href');
-    var target = $(link);
-    if (target.length) {
-      $('html,body').animate({
-          scrollTop: target.offset().top
-      }, 1000);
-      return false;
-    }
-  });
-});
+
 //Auto Close Responsive Navbar on Click
 $(document).ready(function () {
 
