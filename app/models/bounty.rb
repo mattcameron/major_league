@@ -12,6 +12,6 @@
 #
 
 class Bounty < ApplicationRecord
-  belongs_to :event
+  belongs_to :event, optional: true
   belongs_to :user, optional: true
 end
