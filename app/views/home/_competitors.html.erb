@@ -1,3 +1,47 @@
-<section>
-  <h2>Competitors</h2>
+<section class="blog" id="competitors">
+  <div class="container">
+    <div class="center-title">
+      <span class="center-line"></span>
+      <p>Competitors</p>
+      <h3>The warriors</h3>
+    </div>
+
+    <div class="row">
+      <div id="owl-news">
+        <% @users.each do |person| %>
+          <div class="item">
+            <div class='news-col'>
+              <%= image_tag person.image.url, class: 'img-responsive' %>
+              <h3><%= person.name %></h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Suspendisse cursus malesuada facilisis.
+              </p>
+              <div class="skills-wrapper wow animated bounceIn animated animated" data-wow-delay="0.2s">
+                <h3 class="heading-progress">Web Design <span class="pull-right">88%</span></h3>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 88%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="88" role="progressbar">
+                  </div>
+                </div>
+                <h3 class="heading-progress">Web Development <span class="pull-right">78%</span></h3>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 78%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="78" role="progressbar">
+                  </div>
+                </div>
+                <h3 class="heading-progress">Marketing <span class="pull-right">82%</span></h3>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 82%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="82" role="progressbar">
+                  </div>
+                </div>
+                <h3 class="heading-progress">Branding <span class="pull-right">62%</span></h3>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 62%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="82" role="progressbar">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </section>

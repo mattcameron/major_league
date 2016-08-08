@@ -19,6 +19,10 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  image_file_name        :string(255)
+#  image_content_type     :string(255)
+#  image_file_size        :integer
+#  image_updated_at       :datetime
 #
 
 class User < ApplicationRecord
@@ -26,6 +30,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_attached_file :image, default_url: "/user.jpg"
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
   has_many :bounties
 
   scope :order_by_points, -> { joins(:bounties).group('users.id').order('sum(bounties.value) desc') }
