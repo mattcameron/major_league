@@ -119,12 +119,6 @@ $(document).on('ready page:load', function() {
       caption: 'overlayBottomAlong',
       displayType: 'bottomToTop',
       displayTypeSpeed: 100,
-
-      // lightbox
-      lightboxDelegate: '.cbp-lightbox',
-      lightboxGallery: true,
-      lightboxTitleSrc: 'data-title',
-      lightboxCounter: '<div class="cbp-popup-lightbox-counter">{{current}} of {{total}}</div>',
   });
 
 });
