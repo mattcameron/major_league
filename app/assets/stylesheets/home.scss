@@ -3,10 +3,11 @@
 }
 
 .fullwidthbanner {
+  position: relative;
   .main-heading {
     position: absolute;
-    top: 250px;
-    left: 80px;
+    top: 30%;
+    left: 7%;
     color: #fff;
     text-align: center;
     h1 {
@@ -19,6 +20,27 @@
     .center-title {
       padding-bottom: 20px;
     }
+    @media screen and (max-width: 767px) {
+      top: 20%;
+      left: 3%;
+      h1 {
+        font-size: 22px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 14px;
+      }
+      h2 {
+        font-size: 12px;
+      }
+      .center-title {
+        padding-bottom: 5px;
+      }
+    }
   }
 }
 
@@ -27,6 +49,43 @@
   .about-quote {
     p {
       font-size: 25px;
+      @media screen and (max-width: 767px) {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .count-down-1 {
+    .counts {
+      width: 90px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .center-title {
+    padding-bottom: 15px;
+    h3 {
+      font-size: 24px;
+      line-height: 24px;
+    }
+  }
+
+  .count-down-1 {
+    .counts {
+      width: 50px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      span {
+        font-size: 30px;
+        margin-bottom: 0;
+      }
+      p {
+        font-size: 10px;
+        margin-bottom: 0;
+      }
     }
   }
 }
