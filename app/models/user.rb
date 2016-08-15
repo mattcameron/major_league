@@ -30,7 +30,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_attached_file :image, default_url: "/user.jpg"
+  has_attached_file :image,
+                    default_url: "/user_:style.jpg",
+                    styles: {
+                      thumb: "80x80#",
+                      medium: '120x120#'
+                    }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   has_many :bounties

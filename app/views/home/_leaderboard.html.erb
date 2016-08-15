@@ -2,6 +2,45 @@
   <div class="center-title">
     <span class="center-line"></span>
     <p>Leaderboard</p>
-    <h3>Chiefs and Indians</h3>
+    <h3>If you ain't first, you're last</h3>
   </div>
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <ul class="list-group">
+          <% @users.order_by_points.each_with_index do |person, i| %>
+            <% if i == 0 %>
+              <div class="media list-group-item leader">
+                <div class="media-left media-middle">
+                  <%= image_tag person.image.url(:medium), class: 'media-object img-circle' %>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">
+                    <small>Current Alpha</small><br>
+                    <%= person.name %>
+                    <div class="pull-right">
+                      <%= person.points %> points
+                    </div>
+                  </h4>
+                </div>
+              </div>
+            <% else %>
+              <div class="media list-group-item">
+                <div class="media-left media-middle">
+                  <%= image_tag person.image.url(:thumb), class: 'media-object img-circle' %>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">
+                    <%= person.name %>
+                    <div class="pull-right">
+                      <%= person.points %> points
+                    </div>
+                  </h4>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 </div>
