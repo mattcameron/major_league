@@ -14,12 +14,16 @@
 #  image_content_type :string(255)
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  host_id            :integer
 #
 
 class Event < ApplicationRecord
   has_many :bounties
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  # belongs_to :host, class_name: :user
+  has_many :event_competitors
+  has_many :competitors, -> { distinct }, through: :event_competitors, source: :user
 
   accepts_nested_attributes_for :bounties, reject_if: :all_blank, allow_destroy: true
 end

@@ -14,6 +14,7 @@
 #  image_content_type :string(255)
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  host_id            :integer
 #
 
 require 'test_helper'

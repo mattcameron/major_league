@@ -6,6 +6,9 @@
       <h3>The proving grounds</h3>
     </div>
 
+    <p class="lead">Events are scheduled for the first Sunday of every month.</p>
+    <p class="lead">Each person must choose and organise one event. It doesn't have to cost money, but should allow the awarding of points. If any teams are required, they will be randomly chosen by lucky dip.</p>
+
     <div class="cube-masonry">
       <div id="masnory-container" class="cbp">
         <% @events.each do |event| %>
@@ -19,6 +22,9 @@
                   <div class="cbp-l-caption-body">
                     <div class="cbp-l-caption-title">
                       <%= event.name %>
+                    </div>
+                    <div class="cbp-l-caption-desc">
+                      Hosted by <%= event.host %>
                     </div>
                   </div>
                 </div>
