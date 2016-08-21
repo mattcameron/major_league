@@ -23,7 +23,6 @@
 #  image_content_type     :string(255)
 #  image_file_size        :integer
 #  image_updated_at       :datetime
-#  hosted_event_id        :integer
 #
 
 class User < ApplicationRecord
@@ -42,7 +41,7 @@ class User < ApplicationRecord
   has_many :bounties
   has_many :event_competitors
   has_many :events, -> { distinct }, through: :event_competitors
-  has_one  :hosted_event, class_name: :hosted_event
+  has_one  :hosted_event, class_name: 'Event', foreign_key: 'host_id'
 
   scope :order_by_points, -> { joins(:bounties).group('users.id').order('sum(bounties.value) desc') }
 

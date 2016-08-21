@@ -76,11 +76,13 @@ class Admin::EventsController < ApplicationController
         :address_id,
         :favourites,
         :image,
+        :host_id,
         bounties_attributes: [
           :id,
           :_destroy,
           :name,
           :user_id,
+          :event_id,
           :value
         ]
       )
