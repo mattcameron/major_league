@@ -34,7 +34,8 @@ class User < ApplicationRecord
                     default_url: "/user_:style.jpg",
                     styles: {
                       thumb: "80x80#",
-                      medium: '120x120#'
+                      medium: '120x120#',
+                      large: '250x250#'
                     }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 

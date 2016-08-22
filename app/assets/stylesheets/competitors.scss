@@ -1,3 +1,16 @@
 #competitors {
   padding-top: 50px;
+
+  .single-competitor {
+    padding: 25px;
+    background-color: #fff;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 767px) {
+      [class^="col-"], [class*=" col-"] {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+    }
+  }
 }
