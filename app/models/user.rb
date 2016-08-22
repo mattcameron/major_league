@@ -7,7 +7,6 @@
 #  nickname               :string(255)
 #  email                  :string(255)      default(""), not null
 #  bio                    :text(65535)
-#  skills                 :text(65535)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  encrypted_password     :string(255)      default(""), not null
@@ -39,10 +38,13 @@ class User < ApplicationRecord
                     }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  has_many :skills
   has_many :bounties
   has_many :event_competitors
   has_many :events, -> { distinct }, through: :event_competitors
   has_one  :hosted_event, class_name: 'Event', foreign_key: 'host_id'
+
+  accepts_nested_attributes_for :skills, reject_if: :all_blank
 
   scope :order_by_points, -> { joins(:bounties).group('users.id').order('sum(bounties.value) desc') }
 

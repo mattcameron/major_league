@@ -24,7 +24,7 @@ class Event < ApplicationRecord
 
   has_many :event_competitors
   has_many :competitors, -> { distinct }, through: :event_competitors, source: :user
-  belongs_to :host, class_name: 'User'
+  belongs_to :host, class_name: 'User', optional: true
 
   accepts_nested_attributes_for :bounties, reject_if: :all_blank, allow_destroy: true
 end

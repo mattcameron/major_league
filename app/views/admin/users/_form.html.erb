@@ -1,4 +1,4 @@
-<%= form_for [:admin, user] do |f| %>
+<%= form_for [:admin, user], html: { id: 'admin-user-form'} do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -31,17 +31,30 @@
     <%= f.text_area :bio, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, class: 'form-control' %>
+  <div class="form-group row">
+    <%= f.label :image, class: 'col-sm-12' %>
+    <% if f.object.image.present? %>
+      <div class="col-sm-3">
+        <%= image_tag f.object.image.url(:medium), class: 'img-responsive' %>
+      </div>
+    <% end %>
+    <div class="col-sm-9">
+      <%= f.file_field :image, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :skills %>
-    <%= f.text_area :skills, class: 'form-control' %>
+    <h4><%= f.label :skills %></h4>
+    <% f.object.skills.build unless f.object.skills.present? %>
+    <%= f.fields_for :skills do |ff| %>
+      <%= render 'skill_fields', f: ff %>
+    <% end %>
+    <div class="links" id="add-skill">
+      <%= link_to_add_association 'Add Skill', f, :skills, class: 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions text-center">
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

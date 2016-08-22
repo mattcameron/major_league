@@ -7,7 +7,6 @@
 #  nickname               :string(255)
 #  email                  :string(255)      default(""), not null
 #  bio                    :text(65535)
-#  skills                 :text(65535)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  encrypted_password     :string(255)      default(""), not null

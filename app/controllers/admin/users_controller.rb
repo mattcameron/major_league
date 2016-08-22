@@ -71,6 +71,20 @@ class Admin::UsersController < AdminController
         params[:user].delete(:password)
         params[:user].delete(:password_confirmation)
       end
-      params.require(:user).permit(:name, :nickname, :email, :bio, :skills, :password, :password_confirmation, :image)
+      params.require(:user).permit(
+        :name,
+        :nickname,
+        :email,
+        :bio,
+        :skills,
+        :password,
+        :password_confirmation,
+        :image,
+        skills_attributes: [
+          :id,
+          :name,
+          :value,
+          :user_id]
+        )
     end
 end
