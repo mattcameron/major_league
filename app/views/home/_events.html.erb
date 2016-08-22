@@ -24,7 +24,7 @@
                       <%= event.name %>
                     </div>
                     <div class="cbp-l-caption-desc">
-                      Hosted by <%= event.host %>
+                      Hosted by <%= event.host.try(:name) %>
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-$(document).on('ready page:load', function() {
+$(document).on('turbolinks:load', function() {
   if ($('#clock').length) {
     startCountdown('2017/01/01');
   }

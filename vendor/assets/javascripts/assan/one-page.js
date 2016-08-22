@@ -1,4 +1,4 @@
-$(document).on('ready page:load', function () {
+$(document).on('turbolinks:load', function () {
   //sticky header on scroll
   $(window).resize(function () {
     $(".navbar-collapse").css({

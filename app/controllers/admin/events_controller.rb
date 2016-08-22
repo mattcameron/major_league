@@ -77,6 +77,7 @@ class Admin::EventsController < ApplicationController
         :favourites,
         :image,
         :host_id,
+        competitor_ids: [],
         bounties_attributes: [
           :id,
           :_destroy,

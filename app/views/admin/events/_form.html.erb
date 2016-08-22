@@ -1,67 +1,67 @@
-<div class="row">
-  <div class="col-sm-6 col-sm-offset-3">
+<%= form_for [:admin, event], html: { id: 'event-form' } do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-    <%= form_for [:admin, event], html: { id: 'event-form' } do |f| %>
-      <% if event.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-          <ul>
-          <% event.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :event_date %>
-        <%= f.datetime_select :event_date, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :host_id %>
-        <%= f.collection_select :host_id, User.all, :id, :name, { prompt: true }, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :image %>
-        <%= f.file_field :image, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :address_id %>
-        <%= f.number_field :address_id, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :favourites %>
-        <%= f.text_area :favourites, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :bounties %>
-        <%= f.fields_for :bounties do |ff| %>
-          <%= render 'bounty_fields', f: ff %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association 'Add new bounty', f, :bounties, class: 'btn btn-primary' %>
-        </div>
-      </div>
-
-      <div class="actions text-center">
-        <%= f.submit %>
-      </div>
-    <% end %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-</div>
+
+  <div class="form-group">
+    <%= f.label :event_date %>
+    <%= f.datetime_select :event_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :host_id %>
+    <%= f.collection_select :host_id, User.all, :id, :name, { prompt: true }, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address_id %>
+    <%= f.number_field :address_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :favourites %>
+    <%= f.text_area :favourites, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :competitor_ids, 'Competitors' %>
+    <%= f.collection_select :competitor_ids, User.all, :id, :name, {}, multiple: true, size: 10, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :bounties %>
+    <%= f.fields_for :bounties do |ff| %>
+      <%= render 'bounty_fields', f: ff %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add new bounty', f, :bounties, class: 'btn btn-primary' %>
+    </div>
+  </div>
+
+  <div class="actions text-center">
+    <%= f.submit %>
+  </div>
+<% end %>

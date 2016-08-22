@@ -1,5 +1,5 @@
 //smooth scroll
-$(document).on('ready page:load', function () {
+$(document).on('turbolinks:load', function () {
   $('.scroll-to').click(function () {
     var link = $(this).attr('href');
     var target = $(link);
