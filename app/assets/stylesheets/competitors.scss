@@ -6,6 +6,10 @@
     background-color: #fff;
     margin-bottom: 10px;
 
+    .skills-wrapper {
+      margin-top: 35px;
+    }
+
     @media screen and (max-width: 767px) {
       [class^="col-"], [class*=" col-"] {
         margin-top: 15px;

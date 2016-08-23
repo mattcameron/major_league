@@ -3,7 +3,7 @@
     <div class="center-title">
       <span class="center-line"></span>
       <p>Competitors</p>
-      <h3>The warriors</h3>
+      <h3>The challengers</h3>
     </div>
 
     <% @users.each do |person| %>
@@ -25,7 +25,6 @@
           <% end %>
         </div>
         <div class="col-sm-4">
-          <h3 class="heading">Skills</h3>
           <div class="skills-wrapper">
             <% person.skills.each do |skill| %>
               <h3 class="heading-progress"><%= skill.name %> <span class="pull-right"><%= "#{skill.value}%" %></span></h3>

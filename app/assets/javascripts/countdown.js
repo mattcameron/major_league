@@ -6,7 +6,8 @@ $(document).on('turbolinks:load', function() {
 
 
 function startCountdown(finishTime) {
-  $('#clock').countdown('2017/02/01', function (event) {
+  var startDate = $('#clock').data('date');
+  $('#clock').countdown(startDate, function (event) {
     $('#weeks').html(event.strftime('%w'));
     $('#days').html(event.strftime('%d'));
     $('#hours').html(event.strftime('%H'));
