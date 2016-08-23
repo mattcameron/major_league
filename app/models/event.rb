@@ -27,4 +27,10 @@ class Event < ApplicationRecord
   belongs_to :host, class_name: 'User', optional: true
 
   accepts_nested_attributes_for :bounties, reject_if: :all_blank, allow_destroy: true
+
+  def winner
+    # TODO - refactor
+    bounty = bounties.joins(:user).order(value: :desc).first
+    bounty.try(:user)
+  end
 end
