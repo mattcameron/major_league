@@ -7,10 +7,10 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-server 'themajorleague.com.au', user: 'deploy', roles: %w{app db web}
+server 'themajorleague.com.au', user: 'ubuntu', roles: %w{app db web}
 
-set :deploy_to, '/home/deploy/apps/logichealth.arcadiandigital.com.au'
-set :rbenv_path, '/home/deploy/.rbenv/'
+set :deploy_to, '/home/ubuntu/apps/themajorleague.com.au'
+set :rbenv_path, '/home/ubuntu/.rbenv/'
 
 # role-based syntax
 # ==================
