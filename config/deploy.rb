@@ -40,3 +40,16 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
+
+namespace :setup do
+  desc 'Create Database'
+  task :setup_db do
+    on roles(:app) do
+      within current_path.to_s do
+        with rails_env: :production do
+          execute :rake, 'db:create'
+        end
+      end
+    end
+  end
+end
