@@ -5,8 +5,9 @@ lock '3.6.1'
 
 set :application, 'major_league'
 set :repo_url, 'git@github.com:mattcameron/major_league.git'
-set :deploy_via, :remote_cache
+set :user, 'ubuntu'
 set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :deploy_via, :remote_cache
 
 # puma
 set :puma_threads, [4, 16]
