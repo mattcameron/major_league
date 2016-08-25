@@ -9,8 +9,7 @@
 
 server 'themajorleague.com.au', user: 'ubuntu', roles: %w{app db web}
 
-set :deploy_to, '/home/ubuntu/apps/themajorleague.com.au'
-set :rbenv_path, '/home/ubuntu/.rbenv/'
+set :stage, :production
 
 # role-based syntax
 # ==================
