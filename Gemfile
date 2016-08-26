@@ -16,6 +16,7 @@ gem 'rubocop', '~> 0.42.0'
 gem 'devise', '~> 4.2'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'paperclip', '~> 5.0'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
