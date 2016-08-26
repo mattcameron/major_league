@@ -10,6 +10,7 @@ set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :deploy_via, :remote_cache
 
 # puma
+set :puma_conf, "#{shared_path}/config/puma.rb"
 set :puma_threads, [4, 16]
 set :puma_workers, 0
 set :puma_bind, "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
@@ -50,9 +51,11 @@ set :rbenv_roles, :all # default value
 
 # Default value for :linked_files is []
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/puma.rb')
 
 # Default value for linked_dirs is []
 # append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -60,19 +63,6 @@ set :rbenv_roles, :all # default value
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-
-namespace :setup do
-  desc 'Create Database'
-  task :setup_db do
-    on roles(:app) do
-      within current_path.to_s do
-        with rails_env: :production do
-          execute :rake, 'db:create'
-        end
-      end
-    end
-  end
-end
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
@@ -98,25 +88,11 @@ namespace :deploy do
     end
   end
 
-  desc 'Initial Deploy'
-  task :initial do
-    on roles(:app) do
-      before 'deploy:restart', 'puma:start'
-      invoke 'deploy'
-    end
-  end
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
-    end
-  end
 
   before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  after  :finishing,    :restart
+  before 'check:linked_files', 'puma:config'
+  before 'check:linked_files', 'puma:nginx_config'
+  after 'puma:smart_restart', 'nginx:restart'
 end
 
 # ps aux | grep puma    # Get puma pid
