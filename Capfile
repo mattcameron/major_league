@@ -24,6 +24,7 @@ require 'capistrano/rails'
 # require 'capistrano/rails/migrations'
 # require 'capistrano/passenger'
 require 'capistrano/puma'
+require 'capistrano/puma/nginx'
 require 'capistrano/nginx'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
