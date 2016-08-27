@@ -17,16 +17,14 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to 'Events', admin_events_path %></li>
-          <li><%= link_to 'Users', admin_users_path %></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-
+          <%= render current_user.chief? ? 'shared/chief_header' : 'shared/indian_header' %>
         <% else %>
           <li class="active"><a href="#home" class="scroll-to">Home</a></li>
           <li><a href="#about" class="scroll-to">About</a></li>
           <li><a href="#leaderboard" class="scroll-to">Leaderboard</a></li>
           <li><a href="#events" class="scroll-to">Events</a></li>
           <li><a href="#competitors" class="scroll-to">Competitors</a></li>
+          <li><%= link_to 'Log in', new_user_session_path %></li>
         <% end %>
 
       </ul>

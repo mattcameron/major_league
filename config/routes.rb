@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
-  resources :events, only: :show
+  resources :events, except: [:new, :destroy]
 
   namespace :admin do
     resources :users
