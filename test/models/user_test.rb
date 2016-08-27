@@ -22,6 +22,8 @@
 #  image_content_type     :string(255)
 #  image_file_size        :integer
 #  image_updated_at       :datetime
+#  role                   :integer          default(0)
+#  active                 :boolean          default(TRUE)
 #
 
 require 'test_helper'

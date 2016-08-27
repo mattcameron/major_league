@@ -22,6 +22,13 @@
 #  image_content_type     :string(255)
 #  image_file_size        :integer
 #  image_updated_at       :datetime
+#  role                   :integer          default(0)
+#  active                 :boolean          default(TRUE)
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
 class User < ApplicationRecord
@@ -47,6 +54,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :skills, reject_if: :all_blank
 
   scope :order_by_points, -> { joins(:bounties).group('users.id').order('sum(bounties.value) desc') }
+
+  enum role: [:indian, :chief]
 
   def points
     bounties.sum(:value)
