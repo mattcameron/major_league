@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require cocoon
+//= require froala_editor.min.js
 //= require assan/cube-portfolio
 //= require assan/jquery.sticky.js
 //= require assan/waypoints.min.js

@@ -76,7 +76,6 @@ class Admin::UsersController < AdminController
         :nickname,
         :email,
         :bio,
-        :skills,
         :password,
         :password_confirmation,
         :image,

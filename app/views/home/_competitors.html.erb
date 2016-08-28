@@ -7,6 +7,7 @@
     </div>
 
     <% @users.each do |person| %>
+      <% next unless person.name.present? %>
       <div class="row single-competitor">
         <div class="col-sm-3">
           <%= image_tag person.image.url(:large), class: 'img-responsive center-block' %>
@@ -15,13 +16,10 @@
           <h3 class="heading"><%= person.name %></h3>
           <% if person.nickname.present? %>
             <strong>Nickname:</strong>
-            <h4><%= person.nickname %></h4>
+            <p><%= person.nickname %></p>
           <% end %>
           <% if person.bio.present? %>
-            <strong>Bio:</strong>
-            <p>
-              <%= person.bio %>
-            </p>
+            <%= person.bio.try(:html_safe) %>
           <% end %>
         </div>
         <div class="col-sm-4">
