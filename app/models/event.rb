@@ -30,7 +30,7 @@ class Event < ApplicationRecord
                             :less_than => 5.megabytes,
                             message: "- Bro, that image is fucking huge. Try compressing it on www.kraken.io"
 
-  validates_presence_of :name, :description
+  validates_presence_of :name
 
   has_many :event_competitors
   has_many :competitors, -> { distinct }, through: :event_competitors, source: :user
@@ -42,5 +42,10 @@ class Event < ApplicationRecord
     # TODO - refactor
     bounty = bounties.joins(:user).order(value: :desc).first
     bounty.try(:user)
+  end
+
+  def user_points(user)
+    points = bounties.find_by(user_id: user.id).try(:value)
+    points ||= 0
   end
 end

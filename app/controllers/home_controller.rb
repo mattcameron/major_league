@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!, only: :inner_sanctum
   def index
     @events = Event.all
     @users = User.all
@@ -7,6 +8,7 @@ class HomeController < ApplicationController
   end
 
   def inner_sanctum
-
+    @user = current_user
+    @users = User.all
   end
 end
