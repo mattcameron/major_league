@@ -5,4 +5,8 @@ class HomeController < ApplicationController
     @leader = @users.order_by_points.try(:first)
     @next_event = @events.where('event_date > ?', Time.zone.now).order(event_date: :asc).first
   end
+
+  def inner_sanctum
+
+  end
 end

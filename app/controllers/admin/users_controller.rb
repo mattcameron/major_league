@@ -84,7 +84,8 @@ class Admin::UsersController < AdminController
           :id,
           :name,
           :value,
-          :user_id]
-        )
+          :user_id
+        ]
+      )
     end
 end
