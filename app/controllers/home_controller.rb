@@ -10,5 +10,6 @@ class HomeController < ApplicationController
   def inner_sanctum
     @user = current_user
     @users = User.all
+    @event = @user.hosted_event
   end
 end

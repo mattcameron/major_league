@@ -1,4 +1,4 @@
 <li><%= link_to 'Home', inner_sanctum_path %></li>
 <li><%= link_to 'My Event', edit_event_path(current_user.hosted_event.id) if current_user.hosted_event.present? %></li>
-<li><%= link_to 'My Account', edit_user_registration_path %></li>
+<li><%= link_to 'My Profile', edit_user_registration_path %></li>
 <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>

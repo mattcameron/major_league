@@ -30,8 +30,6 @@ class Event < ApplicationRecord
                             :less_than => 5.megabytes,
                             message: "- Bro, that image is fucking huge. Try compressing it on www.kraken.io"
 
-  validates_presence_of :name
-
   has_many :event_competitors
   has_many :competitors, -> { distinct }, through: :event_competitors, source: :user
   belongs_to :host, class_name: 'User', optional: true
