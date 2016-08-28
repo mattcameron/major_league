@@ -26,28 +26,20 @@ class Admin::EventsController < AdminController
   def create
     @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      redirect_to admin_events_path, notice: 'Event was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update(event_params)
+      redirect_to admin_events_path, notice: 'Event was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -73,9 +65,10 @@ class Admin::EventsController < AdminController
         :name,
         :event_date,
         :description,
-        :address_id,
+        :address,
         :favourites,
         :image,
+        :cover_image,
         :host_id,
         competitor_ids: [],
         bounties_attributes: [

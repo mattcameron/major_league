@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827084359) do
+ActiveRecord::Schema.define(version: 20160828051705) do
 
   create_table "bounties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "event_id"
@@ -31,16 +31,20 @@ ActiveRecord::Schema.define(version: 20160827084359) do
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "event_date"
-    t.text     "description",        limit: 65535
-    t.integer  "address_id"
-    t.text     "favourites",         limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.text     "description",              limit: 65535
+    t.text     "favourites",               limit: 65535
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "host_id"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
+    t.string   "address"
   end
 
   create_table "skills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

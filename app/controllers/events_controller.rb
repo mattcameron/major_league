@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to inner_sanctum_path, notice: 'Fuck yeah, this event is going to be awesome!'
+      redirect_to event_path(@event), notice: 'Fuck yeah, this event is going to be awesome!'
     else
       render :edit
     end
@@ -35,9 +35,10 @@ class EventsController < ApplicationController
       :name,
       :event_date,
       :description,
-      :address_id,
+      :address,
       :favourites,
       :image,
+      :cover_image,
       :host_id,
     )
   end

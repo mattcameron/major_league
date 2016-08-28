@@ -1,11 +1,11 @@
 $(document).on('turbolinks:load', function() {
   if ($('#clock').length) {
-    startCountdown('2017/01/01');
+    startCountdown();
   }
 });
 
 
-function startCountdown(finishTime) {
+function startCountdown() {
   var startDate = $('#clock').data('date');
   $('#clock').countdown(startDate, function (event) {
     $('#weeks').html(event.strftime('%w'));

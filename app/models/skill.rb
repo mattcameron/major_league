@@ -12,4 +12,6 @@
 
 class Skill < ApplicationRecord
   belongs_to :user, optional: true
+
+  validates :value, inclusion: 0..100
 end
