@@ -47,11 +47,21 @@
     <h4><%= f.label :skills %></h4>
     <% f.object.skills.build unless f.object.skills.present? %>
     <%= f.fields_for :skills do |ff| %>
-      <%= render 'skill_fields', f: ff %>
+      <%= render 'shared/skill_fields', f: ff %>
     <% end %>
     <div class="links" id="add-skill">
-      <%= link_to_add_association 'Add Skill', f, :skills, class: 'btn btn-default' %>
+      <%= link_to_add_association 'Add Skill', f, :skills, partial: 'shared/skill_fields', class: 'btn btn-default' %>
     </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
 
   <div class="actions text-center">

@@ -57,11 +57,15 @@ class User < ApplicationRecord
 
   enum role: [:indian, :chief]
 
+  after_create :create_event
+
   def points
     bounties.sum(:value)
   end
 
-  def password_required?
-    new_record? ? false : super
+  private
+
+  def create_event
+    events.create(host_id: id)
   end
 end
