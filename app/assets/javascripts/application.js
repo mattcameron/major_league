@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require cocoon
 //= require froala_editor.min.js
 //= require assan/jquery.sticky.js

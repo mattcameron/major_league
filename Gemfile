@@ -18,6 +18,7 @@ gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'paperclip', '~> 5.0'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'wysiwyg-rails', '~> 2.3', '>= 2.3.4'
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.4.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

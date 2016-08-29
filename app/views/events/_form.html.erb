@@ -18,7 +18,11 @@
 
   <div class="form-group">
     <%= f.label :event_date %>
-    <%= f.datetime_select :event_date, class: 'form-control' %>
+    <div class='input-group'>
+    <% event_date = f.object.event_date ? f.object.event_date.strftime('%d-%B-%Y') : "" %>
+      <%= f.text_field :event_date, value: event_date, class: 'form-control datepicker' %>
+      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+    </div>
   </div>
 
   <div class="form-group">
