@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!, only: :inner_sanctum
+  before_action :set_bro_cookie, only: :inner_sanctum
   def index
     @events = Event.all
     @users = User.all
@@ -11,5 +12,12 @@ class HomeController < ApplicationController
     @user = current_user
     @users = User.all
     @event = @user.hosted_event
+  end
+
+  def set_bro_cookie
+    cookies[:bro] = {
+      value: 'cookie monster',
+      expires: 1.year.from_now
+    }
   end
 end
