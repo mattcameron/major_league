@@ -45,6 +45,15 @@ footer .text-logo {
   }
 }
 
+#error_explanation {
+  ul {
+    list-style: none;
+    li {
+    color: red;
+    }
+  }
+}
+
 .divider {
   width: 100px;
   height: 3px;

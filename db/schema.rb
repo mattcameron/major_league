@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828051705) do
+ActiveRecord::Schema.define(version: 20160829115046) do
 
   create_table "bounties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "event_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160828051705) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "event_date"
+    t.date     "event_date"
     t.text     "description",              limit: 65535
     t.text     "favourites",               limit: 65535
     t.datetime "created_at",                             null: false
