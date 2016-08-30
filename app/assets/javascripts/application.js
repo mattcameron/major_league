@@ -16,7 +16,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require cocoon
-//= require froala_editor.min.js
+//= require tinymce
 //= require assan/jquery.sticky.js
 //= require assan/waypoints.min.js
 //= require assan/parallax.min.js

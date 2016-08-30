@@ -356,38 +356,6 @@ about Section
     }
 }
 
-/****
-
-NUMBERS
-
-******/
-.numbers{
-    background: asset-url('showcase-5.jpg') no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    padding-top: 100px;
-    padding-bottom: 70px;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    background-position: 0 50%;
-    h1{
-        color:#fff;
-        margin: 15px 0;
-    }
-    i{
-        color:#fff;
-        font-size: 20px;
-    }
-    p{
-        color:#fff;
-        margin: 0px;
-        font-family: $secondry-font;
-        text-transform: uppercase;
-        font-weight: 400;
-    }
-}
-
 
 /**************************
 
@@ -1245,10 +1213,3 @@ Contact section
   color: #fff;
   margin-bottom: 25px;
   margin-top: 20px; }
-@media(max-width:767px){
-    .process, .numbers, .call-to-action{
-        background-attachment: scroll !important;
-        background-size: cover !important;
-        background-position: center center !important;
-    }
-}
