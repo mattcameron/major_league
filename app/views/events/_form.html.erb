@@ -37,7 +37,7 @@
     </div>
     <% if f.object.image.present? %>
       <div class="col-sm-3">
-        <%= image_tag f.object.image.url, class: 'img-responsive' %>
+        <%= image_tag f.object.image.url, class: 'img-responsive image-thumbnail' %>
       </div>
     <% end %>
     <div class="col-sm-9">
@@ -53,7 +53,7 @@
     </div>
     <% if f.object.cover_image.present? %>
       <div class="col-sm-3">
-        <%= image_tag f.object.cover_image.url, class: 'img-responsive' %>
+        <%= image_tag f.object.cover_image.url, class: 'img-responsive image-thumbnail' %>
       </div>
     <% end %>
     <div class="col-sm-9">

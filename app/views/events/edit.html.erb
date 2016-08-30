@@ -1,9 +1,9 @@
 <div class="row admin-wrapper">
+  <div class="col-sm-3 col-sm-offset-9 view-event-btn">
+    <%= link_to 'View Event Page', event_path(@event), class: 'btn btn-primary' %>
+  </div>
   <div class="col-sm-6 col-sm-offset-3">
     <h1>My Event</h1>
     <%= render 'form', event: @event %>
-  </div>
-  <div class="col-sm-3">
-    <%= link_to 'View Event Page', event_path(@event), class: 'btn btn-primary' %>
   </div>
 </div>

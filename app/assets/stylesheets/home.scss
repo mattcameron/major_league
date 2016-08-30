@@ -54,6 +54,11 @@
       }
     }
   }
+  @media screen and (min-width: 991px) {
+    .second-row {
+      margin-top: 24px;
+    }
+  }
 }
 
 @media screen and (max-width: 991px) {
