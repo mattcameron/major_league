@@ -19,6 +19,8 @@ gem 'paperclip', '~> 5.0'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'wysiwyg-rails', '~> 2.3', '>= 2.3.4'
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.4.1'
+gem 'exception_notification', '~> 4.2', '>= 4.2.1'
+gem 'slack-notifier', '~> 1.5', '>= 1.5.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

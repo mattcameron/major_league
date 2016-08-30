@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :set_error_notification_data
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -7,6 +8,17 @@ class ApplicationController < ActionController::Base
     inner_sanctum_path
   end
 
+  def set_error_notification_data
+    extra_data = {
+      "server" => request.env['SERVER_NAME']
+    }
+    if current_user.present?
+      extra_data[:user_name] = current_user.try(:name)
+      extra_data[:user_email] = current_user.try(:email)
+    end
+
+    request.env['exception_notifier.exception_data'] = extra_data
+  end
   protected
 
   def configure_permitted_parameters
