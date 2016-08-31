@@ -22,7 +22,7 @@
         <hr>
         <div>
           <% if @event.address.present? %>
-            <p class="colored-text"><strong>Address:</strong><%= @event.address %></p>
+            <p><strong class="colored-text">Address: </strong><%= @event.address %></p>
           <% end %>
           <p class="lead"><%= @event.description.try(:html_safe) || 'TBA' %></p>
 
