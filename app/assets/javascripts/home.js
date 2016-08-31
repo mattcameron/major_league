@@ -11,7 +11,7 @@ $(document).on('initComplete.cbp', function() {
 
 function setupSmoothScroll() {
   $('.scroll-to').click(function () {
-    var link = $(this).attr('href');
+    var link = $(this).attr('href').slice(1);
     var target = $(link);
     if (target.length) {
       $('html,body').animate({

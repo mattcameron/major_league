@@ -19,11 +19,11 @@
         <% if user_signed_in? %>
           <%= render current_user.chief? ? 'shared/chief_header' : 'shared/indian_header' %>
         <% else %>
-          <li class="active"><a href="#home" class="scroll-to">Home</a></li>
-          <li><a href="#about" class="scroll-to">About</a></li>
-          <li><a href="#leaderboard" class="scroll-to">Leaderboard</a></li>
-          <li><a href="#events" class="scroll-to">Events</a></li>
-          <li><a href="#competitors" class="scroll-to">Competitors</a></li>
+          <li class="active"><a href="/#home" class="scroll-to">Home</a></li>
+          <li><a href="/#about" class="scroll-to">About</a></li>
+          <li><a href="/#leaderboard" class="scroll-to">Leaderboard</a></li>
+          <li><a href="/#events" class="scroll-to">Events</a></li>
+          <li><a href="/#competitors" class="scroll-to">Competitors</a></li>
           <li><%= sign_in_or_up_link %></li>
         <% end %>
 
