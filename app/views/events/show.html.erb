@@ -22,12 +22,12 @@
         <hr>
         <div>
           <% if @event.address.present? %>
-            <p><strong>Address:</strong><%= @event.address %></p>
+            <p class="colored-text"><strong>Address:</strong><%= @event.address %></p>
           <% end %>
           <p class="lead"><%= @event.description.try(:html_safe) || 'TBA' %></p>
 
           <% if @event.favourites.present? %>
-            <p><strong>Bookies' Favourites:</strong></p>
+            <p class="colored-text"><strong>Bookies' Favourites:</strong></p>
             <p>
               <%= @event.favourites.try(:html_safe) %>
             </p>
