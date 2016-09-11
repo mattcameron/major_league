@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!, only: :inner_sanctum
   before_action :set_bro_cookie, only: :inner_sanctum
   def index
-    @events = Event.all
+    @events = Event.order(:event_date).where.not(image_file_name: nil)
     @users = User.all
     @leader = @users.order_by_points.try(:first)
     @next_event = @events.where('event_date > ?', Time.zone.now).order(event_date: :asc).first
