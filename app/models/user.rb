@@ -45,8 +45,8 @@ class User < ApplicationRecord
                     }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates_attachment_size :image,
-                            :less_than => 1.megabytes,
-                            message: "Bro, that image is huge. Try compressing it on www.kraken.io"
+                            :less_than => 5.megabytes,
+                            message: "- Bro, that image is fucking huge. Try compressing it on www.kraken.io"
 
   has_many :skills
   has_many :bounties
