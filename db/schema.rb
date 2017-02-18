@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829115046) do
+ActiveRecord::Schema.define(version: 20170218130430) do
 
   create_table "bounties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "event_id"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20160829115046) do
     t.integer  "cover_image_file_size"
     t.datetime "cover_image_updated_at"
     t.string   "address"
+    t.integer  "league_id"
+  end
+
+  create_table "leagues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "skills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -77,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160829115046) do
     t.datetime "image_updated_at"
     t.integer  "role",                                 default: 0
     t.boolean  "active",                               default: true
+    t.integer  "league_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

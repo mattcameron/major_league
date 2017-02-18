@@ -19,6 +19,7 @@
 #  cover_image_file_size    :integer
 #  cover_image_updated_at   :datetime
 #  address                  :string(255)
+#  league_id                :integer
 #
 
 class Event < ApplicationRecord
@@ -26,6 +27,7 @@ class Event < ApplicationRecord
   has_many :event_competitors
   has_many :competitors, -> { distinct }, through: :event_competitors, source: :user
   belongs_to :host, class_name: 'User'
+  belongs_to :league
 
   has_attached_file :image, default_url: "/missing/coming-soon.png"
   has_attached_file :cover_image, default_url: "/missing/event-cover.jpg"

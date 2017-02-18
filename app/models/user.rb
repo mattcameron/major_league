@@ -24,6 +24,7 @@
 #  image_updated_at       :datetime
 #  role                   :integer          default("indian")
 #  active                 :boolean          default(TRUE)
+#  league_id              :integer
 #
 # Indexes
 #
@@ -53,6 +54,7 @@ class User < ApplicationRecord
   has_many :event_competitors
   has_many :events, -> { distinct }, through: :event_competitors
   has_one  :hosted_event, class_name: 'Event', foreign_key: 'host_id'
+  belongs_to :league
 
   accepts_nested_attributes_for :skills, reject_if: :all_blank
 
