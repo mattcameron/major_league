@@ -25,7 +25,7 @@ class Event < ApplicationRecord
   has_many :bounties
   has_many :event_competitors
   has_many :competitors, -> { distinct }, through: :event_competitors, source: :user
-  belongs_to :host, class_name: 'User', optional: true
+  belongs_to :host, class_name: 'User'
 
   has_attached_file :image, default_url: "/missing/coming-soon.png"
   has_attached_file :cover_image, default_url: "/missing/event-cover.jpg"

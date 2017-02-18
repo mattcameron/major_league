@@ -48,8 +48,8 @@ class User < ApplicationRecord
                             :less_than => 5.megabytes,
                             message: "- Bro, that image is fucking huge. Try compressing it on www.kraken.io"
 
-  has_many :skills
-  has_many :bounties
+  has_many :skills, dependent: :destroy
+  has_many :bounties, dependent: :destroy
   has_many :event_competitors
   has_many :events, -> { distinct }, through: :event_competitors
   has_one  :hosted_event, class_name: 'Event', foreign_key: 'host_id'

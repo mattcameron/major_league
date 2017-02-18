@@ -5,6 +5,10 @@ $(document).on('turbolinks:load', function () {
   if ($('#events-container').length) { setupMasonry(); }
 });
 
+$(document).on('turbolinks:before-cache', function() {
+  $('#events-container').empty();
+})
+
 $(document).on('initComplete.cbp', function() {
   masonryLoaded = true;
 });

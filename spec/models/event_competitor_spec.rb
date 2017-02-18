@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 describe EventCompetitor, type: :model do
   it 'has a valid factory'
