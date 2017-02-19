@@ -69,6 +69,19 @@ class LeaguesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def league_params
-      params.require(:league).permit(:name, :admin_id)
+      params.require(:league).permit(
+        :name,
+        :admin_id,
+        user_ids: [],
+        users_attributes: [
+          :name,
+          :email,
+          :role,
+          :league_id,
+          :id,
+          :_destroy,
+          :password
+        ]
+      )
     end
 end
