@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, 'League Name' %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
-  <h2>Users</h2>
-  <div class="users">
-    <%= f.fields_for :users, f.object.users do |ff| %>
-      <%= render 'user_fields', f: ff %>
-    <% end %>
+  <div class="form-section">
+    <h2>Users</h2>
+    <div class="form-group">
+      <%= f.fields_for :users, f.object.users do |ff| %>
+        <%= render 'user_fields', f: ff %>
+      <% end %>
 
-    <div class="links">
-      <%= link_to_add_association 'Add User', f, :users %>
+      <div class="links">
+        <%= link_to_add_association 'Add User', f, :users %>
+      </div>
     </div>
   </div>
 
