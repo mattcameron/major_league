@@ -35,7 +35,6 @@ class Event < ApplicationRecord
   validates_attachment_size :image, :cover_image,
                             :less_than => 5.megabytes,
                             message: "- Bro, that image is fucking huge. Try compressing it on www.kraken.io"
-  validate :date_is_not_taken
 
   accepts_nested_attributes_for :bounties, reject_if: :all_blank, allow_destroy: true
 
@@ -49,16 +48,5 @@ class Event < ApplicationRecord
   def user_points(user)
     points = bounties.find_by(user_id: user.id).try(:value)
     points ||= 0
-  end
-
-  private
-
-  def date_is_not_taken
-    return unless event_date.present?
-
-    date_taken = Event.where(event_date: event_date).where.not(id: id).present?
-
-    return unless date_taken
-    errors.add(:event_date, "has already been taken. Sorry bra... Choose another date.")
   end
 end

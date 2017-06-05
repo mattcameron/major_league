@@ -22,9 +22,8 @@
 #  image_content_type     :string(255)
 #  image_file_size        :integer
 #  image_updated_at       :datetime
-#  role                   :integer          default("indian")
 #  active                 :boolean          default(TRUE)
-#  league_id              :integer
+#  role                   :integer
 #
 # Indexes
 #
@@ -54,13 +53,15 @@ class User < ApplicationRecord
   has_many :event_competitors
   has_many :events, -> { distinct }, through: :event_competitors
   has_one  :hosted_event, class_name: 'Event', foreign_key: 'host_id'
-  belongs_to :league
+  has_many :league_users
+  has_many :leagues, through: :league_users
 
   accepts_nested_attributes_for :skills, reject_if: :all_blank
+  accepts_nested_attributes_for :league_users, reject_if: :all_blank
 
   scope :order_by_points, -> { joins(:bounties).group('users.id').order('sum(bounties.value) desc') }
 
-  enum role: [:indian, :chief]
+  enum role: [:regular_user, :site_admin]
 
   after_create :create_event
 

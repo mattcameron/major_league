@@ -17,7 +17,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <%= render current_user.chief? ? 'shared/chief_header' : 'shared/indian_header' %>
+          <%= render current_user.site_admin? ? 'shared/chief_header' : 'shared/indian_header' %>
         <% else %>
           <li class="active"><a href="/#home" class="scroll-to">Home</a></li>
           <li><a href="/#about" class="scroll-to">About</a></li>

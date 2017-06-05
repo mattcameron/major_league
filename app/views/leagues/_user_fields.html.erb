@@ -1,26 +1,28 @@
 <div class="nested-fields">
   <div class="form-group row">
-    <div class="col-sm-3">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
+    <%= f.fields_for :user do |ff| %>
+      <div class="col-sm-3">
+        <%= ff.label :name %>
+        <%= ff.text_field :name, class: 'form-control' %>
+      </div>
 
-    <div class="col-sm-3">
-      <%= f.label :email %>
-      <%= f.text_field :email, class: 'form-control' %>
-    </div>
+      <div class="col-sm-3">
+        <%= ff.label :email %>
+        <%= ff.text_field :email, class: 'form-control' %>
+      </div>
+      <% #if ff.object.new_record? %>
+        <!-- <div class="col-sm-2">
+          <%#= ff.label :password %>
+          <%#= ff.password_field :password, class: 'form-control' %>
+        </div> -->
+      <%# end %>
+    <% end %>
 
     <div class="col-sm-2">
       <%= f.label :role, 'Admin?' %>
-      <%= f.select :role, [['Chump', :indian], ['Admin', :chief]], {}, class: 'form-control' %>
+      <%= f.select :role, [['Chump', :regular], ['Admin', :admin]], {}, class: 'form-control' %>
     </div>
 
-    <% if f.object.new_record? %>
-      <div class="col-sm-2">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-    <% end %>
 
     <div class="col-sm-2">
       <br>

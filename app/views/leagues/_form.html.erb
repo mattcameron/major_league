@@ -19,7 +19,7 @@
   <div class="form-section">
     <h2>Users</h2>
     <div class="form-group">
-      <%= f.fields_for :users, f.object.users do |ff| %>
+      <%= f.fields_for :league_users, f.object.league_users do |ff| %>
         <%= render 'user_fields', f: ff %>
       <% end %>
 

@@ -22,8 +22,13 @@
 #  image_content_type     :string(255)
 #  image_file_size        :integer
 #  image_updated_at       :datetime
-#  role                   :integer          default(0)
 #  active                 :boolean          default(TRUE)
+#  role                   :integer
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
 require 'test_helper'

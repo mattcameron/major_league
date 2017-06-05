@@ -67,20 +67,22 @@ class LeaguesController < ApplicationController
       @league = League.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def league_params
       params.require(:league).permit(
         :name,
         :admin_id,
-        user_ids: [],
-        users_attributes: [
-          :name,
-          :email,
-          :role,
-          :league_id,
+        league_user_ids: [],
+        league_users_attributes: [
           :id,
           :_destroy,
-          :password
+          :role,
+          users_attributes: [
+            :name,
+            :email,
+            :id,
+            :_destroy,
+            :password
+          ]
         ]
       )
     end
