@@ -5,8 +5,8 @@ class AdminController < ApplicationController
   private
 
   def check_admin
-    unless current_user.chief?
-      redirect_to root_path, flash: { warning: "Get your bloody Indian mitts out of here. This is for Chiefs only" }
+    unless current_user.site_admin?
+      redirect_to root_path, flash: { warning: "Get your bloody mitts out of here. This is for legends only" }
     end
   end
 end

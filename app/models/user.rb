@@ -23,7 +23,7 @@
 #  image_file_size        :integer
 #  image_updated_at       :datetime
 #  active                 :boolean          default(TRUE)
-#  role                   :integer
+#  role                   :integer          default("regular_user")
 #
 # Indexes
 #

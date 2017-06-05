@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605122101) do
+ActiveRecord::Schema.define(version: 20170605124523) do
 
   create_table "bounties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "event_id"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20170605122101) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "active",                               default: true
-    t.integer  "role"
+    t.integer  "role",                                 default: 0
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
